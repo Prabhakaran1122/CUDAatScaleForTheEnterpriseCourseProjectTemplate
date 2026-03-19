@@ -3,3 +3,30 @@ A GPU-based application that utilizes massively parallel threads to perform bitw
 Usage: Explains how the encryptKernel handles one pixel per thread, achieving $O(1)$ complexity per pixel in parallel.
 Build Instructions:Run make buildRun ./gpu_encryptor.exe
 Proof of Execution: Paste the terminal output showing the encrypted hex values vs. the decrypted integers.
+
+High-Performance Image Cryptography via CUDA
+
+## Overview
+This project demonstrates a GPU-accelerated image encryption and decryption tool. Leveraging the parallel processing power of NVIDIA GPUs, it utilizes a custom bitwise XOR cipher kernel to process millions of pixels simultaneously. 
+
+By offloading the cryptographic workload to the GPU, this implementation achieves $O(1)$ complexity per pixel in parallel, showcasing a significant performance advantage over traditional serial CPU-based encryption for high-resolution security applications.
+
+## Code Organization
+* **bin/**: Contains the compiled `gpu_encryptor.exe`.
+* **data/**: Placeholder for image datasets (supports USC SIPI formatted raw data).
+* **src/**: Holds the primary CUDA source code (`gpu_encryptor.cu`).
+* **README.md**: Project documentation and overview.
+* **INSTALL**: Step-by-step build instructions.
+* **Makefile**: Automated build script using `nvcc`.
+* **run.sh**: Script to execute the encryption/decryption cycle and log output.
+
+## Technical Specifications
+- **Language**: CUDA C++
+- **Algorithm**: Parallel Bitwise XOR with Index-Based Key Shifting.
+- **Hardware Requirement**: NVIDIA GPU (Compute Capability 2.0 or higher).
+- **Library Dependencies**: CUDA Toolkit, Standard C Libraries.
+
+## Proof of Execution
+When executed, the program generates a synthetic 1024x1024 image, encrypts it on the device, and then decrypts it to verify data integrity. 
+- **Encryption**: Obfuscates pixel data using a 32-bit secret key combined with thread-local indices.
+- **Decryption**: Reverses the process to recover original pixel intensities.
