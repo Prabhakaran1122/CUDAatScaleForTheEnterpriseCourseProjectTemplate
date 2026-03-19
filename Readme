@@ -1,0 +1,5 @@
+Project Title: High-Performance Image Cryptography via CUDA.Description:
+A GPU-based application that utilizes massively parallel threads to perform bitwise XOR encryption on high-resolution images.GPU 
+Usage: Explains how the encryptKernel handles one pixel per thread, achieving $O(1)$ complexity per pixel in parallel.
+Build Instructions:Run make buildRun ./gpu_encryptor.exe
+Proof of Execution: Paste the terminal output showing the encrypted hex values vs. the decrypted integers.
