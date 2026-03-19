@@ -1,0 +1,14 @@
+CXX = nvcc
+TARGET = gpu_encryptor.exe
+SRC = gpu_encryptor.cu
+
+all: build
+
+build:
+	$(CXX) $(SRC) -o $(TARGET) -Wno-deprecated-gpu-targets
+
+run:
+	./$(TARGET)
+
+clean:
+	rm -f $(TARGET)
